@@ -70,7 +70,7 @@ function Login() {
         setTimeout(()=>{
           
           window.location.reload()
-          ocalStorage.setItem("Users",JSON.stringify(res.data.user));
+          localStorage.setItem("Users",JSON.stringify(res.data.user));
 
         },1000)
         
