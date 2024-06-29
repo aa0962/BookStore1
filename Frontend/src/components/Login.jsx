@@ -66,13 +66,23 @@ function Login() {
       if(res.data){
         
         toast.success('Login Successfully');
+        document.getElementById("my_modal_3").close()
+        setTimeout(()=>{
+          
+          window.location.reload()
+          ocalStorage.setItem("Users",JSON.stringify(res.data.user));
+
+        },1000)
+        
+        
       }
-      localStorage.setItem("Users",JSON.stringify(res.data.user));
+      
     }).catch((err)=>{
       if(err.response){
         console.log(err)
         
         toast.error("Error:"+err.response.data.message);
+        setTimeout(()=>{},2000)
       }
 
     })
@@ -80,9 +90,12 @@ function Login() {
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box bg-white dark:bg-gray-800 text-black dark:text-white">
-          <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
+        <div className="modal-box bg-white dark:bg-gray-800 text-black dark:text-white ">
+          <form onSubmit={handleSubmit(onSubmit)} method="dialog" >
+            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={()=>document.getElementById("my_modal_3").close()}
+            >
+              ✕
+              </Link>
             <h3 className="font-bold text-lg">Login</h3>
             <div className='mt-4 space-y-2'>
               <span>Email</span>
