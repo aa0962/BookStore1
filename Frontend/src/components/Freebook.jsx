@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import list from "../../public/list.json";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -23,9 +21,6 @@ function Freebook() {
     }
     getBook();
   },[])
-
-  // const filterData = list.filter((data) => data.category === "Free");
-  // console.log("Filtered Data:", filterData); // Log filtered data to check in console
 
   var settings = {
     dots: true,
