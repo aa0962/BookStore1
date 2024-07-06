@@ -21,7 +21,7 @@ function Signup() {
       email:data.email,
       password:data.password,
     }
-  await axios.post(`${process.env.URI}/signup`,userInfo)
+  await axios.post("http://localhost:4001/user/signup",userInfo)
     .then((res)=>{
       console.log(res.data)
       if(res.data){
